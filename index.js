@@ -1,4 +1,5 @@
 const express =require("express")
+const db=require("./db")
 const app=express()
 
 app.use(express.json())
@@ -7,9 +8,10 @@ app.get("/",(req,res)=>{
     return res.json({message:"Server is up"})
 })
 
-app.get("/teste",(req,res)=>{
+app.get("/teste",async (req,res)=>{
+    const result = await global.connection.collection("teste").find().toArray();
     
-    return res.json({teste:"teste ok"})
+    return res.json(result)
 })
 app.get("/atualizar",(req,res)=>{
     
