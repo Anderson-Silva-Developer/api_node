@@ -1,4 +1,5 @@
 const express =require("express")
+const db=require("./db")
 const app=express()
 
 app.use(express.json())
@@ -8,8 +9,7 @@ app.get("/",(req,res)=>{
 })
 
 app.get("/teste",async (req,res)=>{
-    try {
-    const db=require("./db")
+    try {    
     const result = await global.connection.collection("teste").find().toArray();    
     return res.json(result)
         
