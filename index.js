@@ -9,9 +9,14 @@ app.get("/",(req,res)=>{
 })
 
 app.get("/teste",async (req,res)=>{
-    const result = await global.connection.collection("teste").find().toArray();
-    
+    try {
+    const result = await global.connection.collection("teste").find().toArray();    
     return res.json(result)
+        
+    } catch (error) {
+        return res.json(error)
+    }
+    
 })
 app.get("/atualizar",(req,res)=>{
     
