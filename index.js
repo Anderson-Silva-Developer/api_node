@@ -11,6 +11,10 @@ app.get("/teste",(req,res)=>{
     
     return res.json({teste:"teste ok"})
 })
+app.get("/atualizar",(req,res)=>{
+    
+    return res.json({teste:"teste atualizar ok"})
+})
 
 app.listen("3333",()=>{
     console.log("Server connected")
